@@ -6,7 +6,7 @@
  * @param max - maximum value for range
  * @return random double value between min and max 
 */
-int randInRange(int min, int max);
+double randInRange(int min, int max);
 
 /** 
  * @param rows - number of rows

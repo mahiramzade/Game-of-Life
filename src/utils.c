@@ -8,7 +8,7 @@
 */
 double randInRange(int min, int max)
 {
-    return min + (double)(rand() / (double)(RAND_MAX + 1.0) * (max - min + 1));
+    return min + (rand() * (double)(max - min) / RAND_MAX);
 }
 
 /** 
