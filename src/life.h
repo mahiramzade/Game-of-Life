@@ -21,4 +21,11 @@ typedef struct game
     int **board;
 } Game;
 
+/**
+ * @param rows - number of rows of the board
+ * @param cols - number of columns of the board
+ * @return pointer to the dynamically allocated game object with the board of size rows and cols
+*/
+Game *G_new(int rows, int cols)
+
 #endif
