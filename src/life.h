@@ -48,6 +48,6 @@ int _getAliveNeighbours(Game *game, int row, int col);
  * @param game - Pointer to the game object
  * @return void
 */
-void G_live(Game *game)
+void G_live(Game *game);
 
 #endif
