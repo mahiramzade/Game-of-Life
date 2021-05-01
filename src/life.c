@@ -34,3 +34,30 @@ void G_generate(Game *game)
         for (int j = 0; j < game->cols; j++)
             game->board[i][j] = randInRange(0, 1) < LIVE_PROB;
 }
+
+/**
+ * @param game - Pointer to the game object
+ * @param row - the row of the cell
+ * @param col - the column of the cell
+ * @return number of the alive neighbours of the cell at row and col
+ */
+int _getAliveNeighbours(Game *game, int row, int col)
+{
+    if (!game)
+        return -1;
+
+    int aliveCount = 0;
+    for (int i = -1; i <= 1; i++)
+    {
+        for (int j = -1; j <= 1; j++)
+        {
+            if (
+                (i == j && i == 0) ||
+                (row + i >= game->rows || col + j >= game->cols) ||
+                (row + i < 0 || col + j < 0))
+                continue;
+            aliveCount += game->board[row + i][col + j];
+        }
+    }
+    return aliveCount;
+}

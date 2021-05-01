@@ -33,6 +33,14 @@ Game *G_new(int rows, int cols);
  * @param game - pointer to the game object
  * @return void
 */
-void G_generate(Game *game)
+void G_generate(Game *game);
+
+/**
+ * @param game - Pointer to the game object
+ * @param row - the row of the cell
+ * @param col - the column of the cell
+ * @return number of the alive neighbours of the cell at row and col
+ */
+int _getAliveNeighbours(Game *game, int row, int col);
 
 #endif
