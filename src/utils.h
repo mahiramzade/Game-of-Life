@@ -8,4 +8,11 @@
 */
 int randInRange(int min, int max);
 
+/** 
+ * @param rows - number of rows
+ * @param cols - number of columns
+ * @return dynamically allocated two dimensional integer array 
+*/
+int **allocate2dArr(int rows, int cols);
+
 #endif
