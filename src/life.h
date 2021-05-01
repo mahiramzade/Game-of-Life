@@ -43,4 +43,11 @@ void G_generate(Game *game);
  */
 int _getAliveNeighbours(Game *game, int row, int col);
 
+/**
+ * Creates new generation according to the game's rules
+ * @param game - Pointer to the game object
+ * @return void
+*/
+void G_live(Game *game)
+
 #endif

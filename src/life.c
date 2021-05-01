@@ -61,3 +61,33 @@ int _getAliveNeighbours(Game *game, int row, int col)
     }
     return aliveCount;
 }
+
+/**
+ * Creates new generation according to the game's rules
+ * @param game - Pointer to the game object
+ * @return void
+*/
+void G_live(Game *game)
+{
+    if (!game)
+        return;
+    int **nextBoard = copy2dArr(game->board, game->rows, game->cols);
+    for (int i = 0; i < game->rows; i++)
+    {
+        for (int j = 0; j < game->cols; j++)
+        {
+            int aliveCount = _getAliveNeighbours(game, i, j);
+            if (game->board[i][j])
+            {
+                nextBoard[i][j] = !(aliveCount < 2 || aliveCount > 3);
+            }
+            else if (!game->board[i][j])
+            {
+                nextBoard[i][j] = aliveCount == 3;
+            }
+        }
+    }
+    free(game->board);
+    game->board = nextBoard;
+    game->generation++;
+}
