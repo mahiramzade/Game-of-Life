@@ -24,4 +24,18 @@ int **allocate2dArr(int rows, int cols)
     return arr;
 }
 
+/** 
+ * @param arr - 2D integer array
+ * @param rows - number of rows
+ * @param cols - number of columns
+ * @return dynamically allocated copy of arr 
+*/
+int **copy2dArr(int **arr, int rows, int cols)
+{
+    int **copy = allocate2dArr(rows, cols);
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            copy[i][j] = arr[i][j];
+    return copy;
+}
 

@@ -15,4 +15,12 @@ int randInRange(int min, int max);
 */
 int **allocate2dArr(int rows, int cols);
 
+/** 
+ * @param arr - 2D integer array
+ * @param rows - number of rows
+ * @param cols - number of columns
+ * @return dynamically allocated copy of arr 
+*/
+int **copy2dArr(int **arr, int rows, int cols);
+
 #endif
