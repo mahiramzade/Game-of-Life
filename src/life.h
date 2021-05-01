@@ -26,6 +26,13 @@ typedef struct game
  * @param cols - number of columns of the board
  * @return pointer to the dynamically allocated game object with the board of size rows and cols
 */
-Game *G_new(int rows, int cols)
+Game *G_new(int rows, int cols);
+
+/**
+ * Randomly initializes the cells of the game's board
+ * @param game - pointer to the game object
+ * @return void
+*/
+void G_generate(Game *game)
 
 #endif

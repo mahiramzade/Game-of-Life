@@ -17,3 +17,20 @@ Game *G_new(int rows, int cols)
     game->board = allocate2dArr(rows, cols);
     return game;
 }
+
+/**
+ * Randomly initializes the cells of the game's board
+ * @param game - pointer to the game object
+ * @return void
+*/
+void G_generate(Game *game)
+{
+    if (!game)
+        return;
+
+    srand(time(NULL));
+
+    for (int i = 0; i < game->rows; i++)
+        for (int j = 0; j < game->cols; j++)
+            game->board[i][j] = randInRange(0, 1) < LIVE_PROB;
+}
