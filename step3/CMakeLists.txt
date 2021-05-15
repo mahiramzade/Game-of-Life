@@ -4,6 +4,10 @@ project(game_of_life)
 
 SET(IS_CLIPPED 0)
 
+SET(DIST_NAME "${CMAKE_CURRENT_BINARY_DIR}/../${PROJECT_NAME}.tar.xz")
+SET(HAVE_DOT "no")
+SET(DOT_PATH "/usr/local/bin")
+
 add_executable(${PROJECT_NAME} main.c)
 
 add_subdirectory(console)
@@ -36,3 +40,13 @@ if (DOXYGEN_FOUND)
 else (DOXYGEN_FOUND)
   message("Doxygen need to be installed to generate the doxygen documentation")
 endif (DOXYGEN_FOUND)
+
+SET(DIST_FILES 
+    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}" 
+    "${CMAKE_CURRENT_BINARY_DIR}/console"
+    "${CMAKE_CURRENT_BINARY_DIR}/game"
+)
+
+add_custom_target(dist ALL COMMAND
+    ${CMAKE_COMMAND} -E tar "cfJ" ${DIST_NAME} ${DIST_FILES})
+add_dependencies(dist ${PROJECT_NAME} console game)
