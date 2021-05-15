@@ -52,6 +52,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-/obj
+/build
 /docs
 /game_of_life

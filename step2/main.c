@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
-#include "ansi.h"
+#include "board_drawer.h"
 #include "life.h"
 
 #define MAX_GEN 10000
