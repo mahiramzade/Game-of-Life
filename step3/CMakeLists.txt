@@ -2,10 +2,14 @@ cmake_minimum_required(VERSION 3.15)
 
 project(game_of_life)
 
+SET(IS_CLIPPED 0)
+
 add_executable(${PROJECT_NAME} main.c)
 
 add_subdirectory(console)
 add_subdirectory(game)
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE IS_CLIPPED=${IS_CLIPPED})
 
 target_include_directories(${PROJECT_NAME} PUBLIC console game)
 target_link_directories(${PROJECT_NAME} PRIVATE console game)
