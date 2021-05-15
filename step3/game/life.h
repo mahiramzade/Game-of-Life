@@ -1,5 +1,5 @@
-#ifndef __LIFE_H__
-#define __LIFE_H__
+#ifndef LIFE_H
+#define LIFE_H
 
 #define DEAD "\033[40m  "
 #define LIVE "\033[46m  "
@@ -16,6 +16,6 @@ Game *G_new(int rows, int cols);
 
 void G_generate(Game *game);
 
-void G_live(Game *game);
+void G_live(Game *game, int is_clipped);
 
 #endif

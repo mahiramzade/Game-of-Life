@@ -24,7 +24,7 @@ int **copy2dArr(int **arr, int rows, int cols)
     return copy;
 }
 
-int _getAliveNeighbours(Game *game, int row, int col)
+int _getAliveNeighbours(Game *game, int row, int col, int is_clipped)
 {
     if (!game)
         return -1;
@@ -38,10 +38,10 @@ int _getAliveNeighbours(Game *game, int row, int col)
     {
         for (int j = -1; j <= 1; j++)
         {
-            if (
-                (i == j && i == 0) ||
-                (row + i >= rows || col + j >= cols) ||
-                (row + i < 0 || col + j < 0))
+            if (i == j && i == 0)
+                continue;
+            if (is_clipped && ((row + i >= rows || col + j >= cols) ||
+                               (row + i < 0 || col + j < 0)))
                 continue;
             aliveCount += board[row + i][col + j];
         }
@@ -72,7 +72,7 @@ void G_generate(Game *game)
             board[i][j] = randInRange(0, 1) < LIVE_PROB;
 }
 
-void G_live(Game *game)
+void G_live(Game *game, int is_clipped)
 {
     if (!game)
         return;
@@ -81,7 +81,7 @@ void G_live(Game *game)
     {
         for (int j = 0; j < game->cols; j++)
         {
-            int aliveCount = _getAliveNeighbours(game, i, j);
+            int aliveCount = _getAliveNeighbours(game, i, j, is_clipped);
             if (game->board[i][j])
             {
                 nextBoard[i][j] = !(aliveCount < 2 || aliveCount > 3);
