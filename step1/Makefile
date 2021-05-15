@@ -14,6 +14,7 @@ SRCDIR = src
 OBJDIR = obj
 DOXYGEN_CONF = Doxyfile.conf
 DOXYGEN_OUT = docs
+DIST_NAME=$(APPNAME).tar.xz
 
 ############## Do not change anything from here downwards! #############
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
@@ -56,8 +57,16 @@ clean:
 cleanw:
 	$(DEL) $(WDELOBJ) $(APPNAME)$(EXE)
 
+.PHONY: docs
 docs:
 	doxygen $(DOXYGEN_CONF)
 
 cleandocs:
 	rm -rf $(DOXYGEN_OUT)
+
+PHONY: dist
+dist:
+	tar cfJ $(DIST_NAME) $(SRC)
+
+cleandist:
+	rm $(DIST_NAME)
