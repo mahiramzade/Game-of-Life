@@ -42,9 +42,9 @@ else (DOXYGEN_FOUND)
 endif (DOXYGEN_FOUND)
 
 SET(DIST_FILES 
-    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}" 
-    "${CMAKE_CURRENT_BINARY_DIR}/console"
-    "${CMAKE_CURRENT_BINARY_DIR}/game"
+    "${CMAKE_CURRENT_SOURCE_DIR}/main.c" 
+    "${CMAKE_CURRENT_SOURCE_DIR}/console"
+    "${CMAKE_CURRENT_SOURCE_DIR}/game"
 )
 
 add_custom_target(dist ALL COMMAND
