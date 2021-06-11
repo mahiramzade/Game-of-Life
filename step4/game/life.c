@@ -43,7 +43,12 @@ int _getAliveNeighbours(Game *game, int row, int col, int is_clipped)
             if (is_clipped && ((row + i >= rows || col + j >= cols) ||
                                (row + i < 0 || col + j < 0)))
                 continue;
-            aliveCount += board[row + i][col + j];
+
+            int r = row + i < 0 ? rows - 1 : row + i;
+            r = row + i >= rows ? 0 : r;
+            int c = col + j < 0 ? cols - 1 : col + j;
+            c = col + j >= cols ? 0 : c;
+            aliveCount += board[r][c];
         }
     }
     return aliveCount;
