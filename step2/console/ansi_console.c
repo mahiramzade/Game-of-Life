@@ -27,6 +27,11 @@ void get_terminal_size(int *width, int *height)
     *width = *width / 2 + *width % 2;
 }
 
+/**
+ * Prints the game's board on the terminal
+ * @param game - Pointer to the game object
+ * @return void
+*/
 void draw_board(Game *game)
 {
     if (!game)
