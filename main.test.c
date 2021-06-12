@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #include <CUnit/CUnit.h>
 #include <CUnit/Console.h>
 #include <CUnit/Basic.h>

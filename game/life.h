@@ -37,4 +37,12 @@ void G_generate(Game *game);
 */
 void G_live(Game *game, int is_clipped);
 
+/**
+ * @param game - Pointer to the game object
+ * @param row - the row of the cell
+ * @param col - the column of the cell
+ * @return number of the alive neighbours of the cell at row and col
+ */
+int _getAliveNeighbours(Game *game, int row, int col, int is_clipped);
+
 #endif
